@@ -10,10 +10,12 @@ import 'screens/appointments_page.dart';
 import 'screens/contact_page.dart';
 
 void main() {
-  runApp(AppointmentApp());
+  runApp(const AppointmentApp());
 }
 
 class AppointmentApp extends StatelessWidget {
+  const AppointmentApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -27,7 +29,7 @@ class AppointmentApp extends StatelessWidget {
             ),
             locale: localeProvider.locale,
             supportedLocales: L10n.all,
-            localizationsDelegates: [
+            localizationsDelegates: const [
               AppLocalizations.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
@@ -49,10 +51,10 @@ class AppointmentApp extends StatelessWidget {
             initialRoute: '/',
             routes: {
               '/': (context) => LandingPage(),
-              '/about': (context) => AboutPage(),
+              '/about': (context) => const AboutPage(),
               '/profile': (context) => ProfilePage(),
-              '/appointments': (context) => AppointmentsPage(),
-              '/contact': (context) => ContactPage(),
+              '/appointments': (context) => const AppointmentsPage(),
+              '/contact': (context) => const ContactPage(),
             },
           );
         },
@@ -60,5 +62,3 @@ class AppointmentApp extends StatelessWidget {
     );
   }
 }
-
-

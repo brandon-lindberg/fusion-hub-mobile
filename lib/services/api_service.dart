@@ -31,7 +31,7 @@ import '../models/appointment.dart';
 class ApiService {
   Future<List<Appointment>> fetchAppointments() async {
     // Simulate network delay
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     // Return mock data
     return MockData.appointments;
   }
