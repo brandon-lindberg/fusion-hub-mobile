@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LocaleProvider with ChangeNotifier {
-  Locale _locale = Locale('en');
+  Locale _locale = const Locale('en');
 
   Locale get locale => _locale;
 
@@ -13,15 +13,15 @@ class LocaleProvider with ChangeNotifier {
   }
 
   void clearLocale() {
-    _locale = Locale('en');
+    _locale = const Locale('en');
     notifyListeners();
   }
 }
 
 class L10n {
   static final all = [
-    Locale('en'),
-    Locale('ja'),
+    const Locale('en'),
+    const Locale('ja'),
   ];
 
   static String getFlag(String code) {

@@ -7,11 +7,13 @@ class ProfilePage extends StatelessWidget {
     // Add more staff as needed
   ];
 
+  ProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Profile Page'),
+        title: const Text('Profile Page'),
       ),
       body: ListView.builder(
         itemCount: staff.length,
@@ -22,11 +24,11 @@ class ProfilePage extends StatelessWidget {
                 Image.asset(staff[index]['image']!),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(staff[index]['name']!, style: TextStyle(fontSize: 20.0)),
+                  child: Text(staff[index]['name']!, style: const TextStyle(fontSize: 20.0)),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(staff[index]['info']!, style: TextStyle(fontSize: 16.0)),
+                  child: Text(staff[index]['info']!, style: const TextStyle(fontSize: 16.0)),
                 ),
               ],
             ),
