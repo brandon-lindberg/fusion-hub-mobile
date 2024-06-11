@@ -50,7 +50,7 @@ class AppointmentApp extends StatelessWidget {
             },
             initialRoute: '/',
             routes: {
-              '/': (context) => LandingPage(),
+              '/': (context) => const LandingPage(),
               '/about': (context) => const AboutPage(),
               '/profile': (context) => ProfilePage(),
               '/appointments': (context) => const AppointmentsPage(),
