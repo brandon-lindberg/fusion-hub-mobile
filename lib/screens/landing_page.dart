@@ -8,7 +8,7 @@ import '../services/event_service.dart';
 import '../models/event.dart';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  const LandingPage({super.key});
 
   @override
   _LandingPageState createState() => _LandingPageState();
