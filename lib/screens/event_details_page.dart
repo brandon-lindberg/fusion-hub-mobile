@@ -58,12 +58,12 @@ class EventDetailsPage extends StatelessWidget {
             child: Column(
               children: [
                 TextField(decoration: InputDecoration(labelText: 'Event', hintText: event.title, enabled: false)),
-                TextField(decoration: const InputDecoration(labelText: 'Family Name')),
-                TextField(decoration: const InputDecoration(labelText: 'Family Name Kana')),
-                TextField(decoration: const InputDecoration(labelText: 'First Name')),
-                TextField(decoration: const InputDecoration(labelText: 'First Name Kana')),
-                TextField(decoration: const InputDecoration(labelText: 'Email')),
-                TextField(decoration: const InputDecoration(labelText: 'Phone')),
+                const TextField(decoration: InputDecoration(labelText: 'Family Name')),
+                const TextField(decoration: InputDecoration(labelText: 'Family Name Kana')),
+                const TextField(decoration: InputDecoration(labelText: 'First Name')),
+                const TextField(decoration: InputDecoration(labelText: 'First Name Kana')),
+                const TextField(decoration: InputDecoration(labelText: 'Email')),
+                const TextField(decoration: InputDecoration(labelText: 'Phone')),
                 TextField(
                   decoration: const InputDecoration(labelText: 'Number of Children'),
                   keyboardType: TextInputType.number,
@@ -71,7 +71,7 @@ class EventDetailsPage extends StatelessWidget {
                     // Handle child fields rendering
                   },
                 ),
-                TextField(decoration: const InputDecoration(labelText: 'Personal Message')),
+                const TextField(decoration: InputDecoration(labelText: 'Personal Message')),
               ],
             ),
           ),

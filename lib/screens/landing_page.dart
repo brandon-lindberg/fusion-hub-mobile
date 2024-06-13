@@ -6,10 +6,9 @@ import '../l10n/app_localizations.dart';
 import '../providers/locale_provider.dart';
 import '../services/event_service.dart';
 import '../models/event.dart';
-import 'package:intl/intl.dart';
 
 class LandingPage extends StatefulWidget {
-  const LandingPage({Key? key}) : super(key: key);
+  const LandingPage({super.key});
 
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -56,11 +55,11 @@ class _LandingPageState extends State<LandingPage> {
               future: futureEvents,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  return const CircularProgressIndicator();
                 } else if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
                 } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return Text('No events available');
+                  return const Text('No events available');
                 } else {
                   return TableCalendar(
                     firstDay: DateTime.utc(2020, 10, 16),
@@ -85,7 +84,7 @@ class _LandingPageState extends State<LandingPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(events.first.description),
-                                  SizedBox(height: 16.0),
+                                  const SizedBox(height: 16.0),
                                   ElevatedButton(
                                     onPressed: () {
                                       Navigator.of(context).pop();
@@ -165,12 +164,12 @@ class _LandingPageState extends State<LandingPage> {
             child: Column(
               children: [
                 TextField(decoration: InputDecoration(labelText: 'Event', hintText: event.title, enabled: false)),
-                TextField(decoration: const InputDecoration(labelText: 'Family Name')),
-                TextField(decoration: const InputDecoration(labelText: 'Family Name Kana')),
-                TextField(decoration: const InputDecoration(labelText: 'First Name')),
-                TextField(decoration: const InputDecoration(labelText: 'First Name Kana')),
-                TextField(decoration: const InputDecoration(labelText: 'Email')),
-                TextField(decoration: const InputDecoration(labelText: 'Phone')),
+                const TextField(decoration: InputDecoration(labelText: 'Family Name')),
+                const TextField(decoration: InputDecoration(labelText: 'Family Name Kana')),
+                const TextField(decoration: InputDecoration(labelText: 'First Name')),
+                const TextField(decoration: InputDecoration(labelText: 'First Name Kana')),
+                const TextField(decoration: InputDecoration(labelText: 'Email')),
+                const TextField(decoration: InputDecoration(labelText: 'Phone')),
                 TextField(
                   decoration: const InputDecoration(labelText: 'Number of Children'),
                   keyboardType: TextInputType.number,
@@ -178,7 +177,7 @@ class _LandingPageState extends State<LandingPage> {
                     // Handle child fields rendering
                   },
                 ),
-                TextField(decoration: const InputDecoration(labelText: 'Personal Message')),
+                const TextField(decoration: InputDecoration(labelText: 'Personal Message')),
               ],
             ),
           ),
