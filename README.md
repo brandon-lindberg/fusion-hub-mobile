@@ -1,6 +1,6 @@
-# appointment_app
+# Cultural Fusion Hub App
 
-A new Flutter project.
+An app for the Cultural Fusion Hub, for information, events, registration, and inquirires.
 
 ## Getting Started
 
