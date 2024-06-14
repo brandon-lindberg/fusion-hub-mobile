@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 import '../models/event.dart';
 import 'package:intl/intl.dart';
 
@@ -13,9 +14,7 @@ class EventDetailsPage extends StatelessWidget {
     final DateFormat timeFormat = DateFormat('h:mm a');
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(event.title),
-      ),
+      appBar: const CustomAppBar(title: 'Events'), 
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

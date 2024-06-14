@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 import '../models/appointment.dart';
 import '../services/api_service.dart';
 
@@ -21,9 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Appointment App'),
-      ),
+      appBar: const CustomAppBar(title: 'Cultural Fusion Hub'), 
       body: Center(
         child: FutureBuilder<List<Appointment>>(
           future: futureAppointments,

@@ -6,6 +6,8 @@ import '../l10n/app_localizations.dart';
 import '../providers/locale_provider.dart';
 import '../services/event_service.dart';
 import '../models/event.dart';
+import '../widgets/custom_app_bar.dart';
+import '../widgets/custom_drawer_header.dart'; 
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -34,9 +36,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(AppLocalizations.of(context)!.translate('home')),
-      ),
+      appBar: const CustomAppBar(title: 'Cultural Fusion Hub'),  // Use the custom AppBar
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -116,10 +116,7 @@ class _LandingPageState extends State<LandingPage> {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.blue),
-              child: Text('Menu'),
-            ),
+            const CustomDrawerHeader(),
             ListTile(
               title: Text(AppLocalizations.of(context)!.translate('about')),
               onTap: () => Navigator.pushNamed(context, '/about'),

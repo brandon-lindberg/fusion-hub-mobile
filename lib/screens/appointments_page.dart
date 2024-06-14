@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../main.dart';
 import '../models/event.dart';
 import '../services/event_service.dart';
 import 'event_details_page.dart';
@@ -27,9 +28,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
     final DateFormat timeFormat = DateFormat('h:mm a');
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Events'),
-      ),
+      appBar: const CustomAppBar(title: 'Events'), 
       body: Column(
         children: [
           ElevatedButton(

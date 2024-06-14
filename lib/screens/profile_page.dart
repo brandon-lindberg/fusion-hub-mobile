@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../main.dart';
+
 class ProfilePage extends StatelessWidget {
   final List<Map<String, String>> staff = [
     {'name': 'Staff 1', 'image': 'assets/profile_one.jpg', 'info': 'Info about Staff 1'},
@@ -12,9 +14,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile Page'),
-      ),
+      appBar: const CustomAppBar(title: 'Profile Page'), 
       body: ListView.builder(
         itemCount: staff.length,
         itemBuilder: (context, index) {
