@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../l10n/app_localizations.dart'; 
+import '../l10n/app_localizations.dart';
+import '../main.dart'; 
 
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
@@ -9,9 +10,7 @@ class AboutPage extends StatelessWidget {
     final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(localizations.translate('about')),
-      ),
+      appBar: const CustomAppBar(title: 'About'), 
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
