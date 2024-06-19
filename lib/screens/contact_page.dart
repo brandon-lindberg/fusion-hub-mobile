@@ -7,9 +7,9 @@ class ContactPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const CustomAppBar(title: 'Contact Page'), 
-      body: const Padding(
+    return const Scaffold(
+      appBar: CustomAppBar(title: 'Contact Page'), 
+      body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           children: [

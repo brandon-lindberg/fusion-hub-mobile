@@ -7,7 +7,7 @@ import '../providers/locale_provider.dart';
 import '../services/event_service.dart';
 import '../models/event.dart';
 import '../widgets/custom_app_bar.dart';
-import '../widgets/custom_drawer_header.dart'; 
+import '../widgets/custom_drawer_header.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -36,7 +36,7 @@ class _LandingPageState extends State<LandingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Cultural Fusion Hub'),  // Use the custom AppBar
+      appBar: const CustomAppBar(title: 'Cultural Fusion Hub'),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -123,13 +123,16 @@ class _LandingPageState extends State<LandingPage> {
             ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.translate('profile')),
-              onTap: () => Navigator.pushNamed(context, '/profile')),
+              onTap: () => Navigator.pushNamed(context, '/profile'),
+            ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.translate('appointments')),
-              onTap: () => Navigator.pushNamed(context, '/appointments')),
+              onTap: () => Navigator.pushNamed(context, '/appointments'),
+            ),
             ListTile(
               title: Text(AppLocalizations.of(context)!.translate('contact')),
-              onTap: () => Navigator.pushNamed(context, '/contact')),
+              onTap: () => Navigator.pushNamed(context, '/contact'),
+            ),
             const Divider(),
             ListTile(
               leading: const Text('🇬🇧'),
@@ -160,7 +163,6 @@ class _LandingPageState extends State<LandingPage> {
           content: SingleChildScrollView(
             child: Column(
               children: [
-                TextField(decoration: InputDecoration(labelText: 'Event', hintText: event.title, enabled: false)),
                 const TextField(decoration: InputDecoration(labelText: 'Family Name')),
                 const TextField(decoration: InputDecoration(labelText: 'Family Name Kana')),
                 const TextField(decoration: InputDecoration(labelText: 'First Name')),
