@@ -28,16 +28,19 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
     final DateFormat timeFormat = DateFormat('h:mm a');
 
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Events'), 
+      appBar: const CustomAppBar(title: 'Events'),
       body: Column(
         children: [
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                showPastEvents = !showPastEvents;
-              });
-            },
-            child: Text(showPastEvents ? 'Show Upcoming Events' : 'Show Past Events'),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 30.0), // Add margin-top and margin-bottom
+            child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  showPastEvents = !showPastEvents;
+                });
+              },
+              child: Text(showPastEvents ? 'Show Upcoming Events' : 'Show Past Events'),
+            ),
           ),
           Expanded(
             child: FutureBuilder<List<Event>>(
@@ -56,6 +59,7 @@ class _AppointmentsPageState extends State<AppointmentsPage> {
                     events = events.where((event) => event.start.isAfter(now)).toList();
                   } else {
                     events = events.where((event) => event.start.isBefore(now)).toList();
+                    events.sort((a, b) => b.start.compareTo(a.start)); // Sort past events from most recent to least recent
                   }
 
                   return ListView.builder(
