@@ -87,10 +87,14 @@ class _LandingPageState extends State<LandingPage> {
                                   const SizedBox(height: 16.0),
                                   ElevatedButton(
                                     onPressed: () {
-                                      Navigator.of(context).pop();
-                                      _showRegistrationForm(context, events.first);
+                                      if (events.first.end.isAfter(DateTime.now())) {
+                                        Navigator.of(context).pop();
+                                        _showRegistrationForm(context, events.first);
+                                      } else {
+                                        Navigator.of(context).pop();
+                                      }
                                     },
-                                    child: Text(AppLocalizations.of(context)!.translate('register')),
+                                    child: Text(_getButtonText(events.first)),
                                   ),
                                 ],
                               ),
@@ -152,6 +156,12 @@ class _LandingPageState extends State<LandingPage> {
         ),
       ),
     );
+  }
+
+  String _getButtonText(Event event) {
+    return event.end.isAfter(DateTime.now())
+        ? AppLocalizations.of(context)!.translate('register')
+        : AppLocalizations.of(context)!.translate('close');
   }
 
   void _showRegistrationForm(BuildContext context, Event event) {

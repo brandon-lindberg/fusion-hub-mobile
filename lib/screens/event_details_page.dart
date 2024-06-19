@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../main.dart';
-import '../models/event.dart';
 import 'package:intl/intl.dart';
+import '../models/event.dart';
+import '../widgets/custom_app_bar.dart';
 
 class EventDetailsPage extends StatelessWidget {
   final Event event;
@@ -13,8 +13,10 @@ class EventDetailsPage extends StatelessWidget {
     final DateFormat dateFormat = DateFormat('yyyy-MM-dd');
     final DateFormat timeFormat = DateFormat('h:mm a');
 
+    bool isUpcoming = event.end.isAfter(DateTime.now());
+
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Events'), 
+      appBar: const CustomAppBar(title: 'Events'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -37,9 +39,13 @@ class EventDetailsPage extends StatelessWidget {
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
-                _showRegistrationForm(context);
+                if (isUpcoming) {
+                  _showRegistrationForm(context);
+                } else {
+                  Navigator.of(context).pop();
+                }
               },
-              child: const Text('Register'),
+              child: Text(isUpcoming ? 'Register' : 'Close'),
             ),
           ],
         ),
@@ -88,5 +94,3 @@ class EventDetailsPage extends StatelessWidget {
     );
   }
 }
-
-
