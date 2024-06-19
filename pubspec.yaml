@@ -16,6 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   firebase_core: ^3.1.0
   cloud_functions: ^5.0.1
+  url_launcher: ^6.0.20
 
   
   http: ^1.2.1

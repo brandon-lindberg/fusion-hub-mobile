@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../l10n/app_localizations.dart';
 import '../providers/locale_provider.dart';
 import '../services/event_service.dart';
@@ -84,6 +85,14 @@ class _LandingPageState extends State<LandingPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(events.first.description),
+                                  const SizedBox(height: 16.0),
+                                  if (events.first.googleMapsUrl != null)
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        _launchURL(events.first.googleMapsUrl!);
+                                      },
+                                      child: const Text('Directions'),
+                                    ),
                                   const SizedBox(height: 16.0),
                                   ElevatedButton(
                                     onPressed: () {
@@ -202,5 +211,13 @@ class _LandingPageState extends State<LandingPage> {
         );
       },
     );
+  }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

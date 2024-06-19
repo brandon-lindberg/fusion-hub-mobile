@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../models/event.dart';
 import '../widgets/custom_app_bar.dart';
 
@@ -17,7 +18,7 @@ class EventDetailsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: const CustomAppBar(title: 'Events'),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,6 +37,14 @@ class EventDetailsPage extends StatelessWidget {
             ),
             const SizedBox(height: 16.0),
             Text(event.description, style: Theme.of(context).textTheme.bodyLarge),
+            const SizedBox(height: 16.0),
+            if (event.googleMapsUrl != null)
+              ElevatedButton(
+                onPressed: () {
+                  _launchURL(event.googleMapsUrl!);
+                },
+                child: const Text('Directions'),
+              ),
             const SizedBox(height: 16.0),
             ElevatedButton(
               onPressed: () {
@@ -93,4 +102,13 @@ class EventDetailsPage extends StatelessWidget {
       },
     );
   }
+
+  void _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 }
+
